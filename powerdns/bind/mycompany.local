@@ -1,0 +1,19 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     mycompany.local. root.mycompany.local. (
+                              3         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;Nameservers - NS records
+
+        IN      NS      ns1.mycompany.local.
+
+; nameservers A records
+ns1.mycompany.local. IN      A       192.168.122.151
+
+;192.168.122./24 - A records
+puppet-a1.mycompany.local.   IN      A       192.168.122.158
