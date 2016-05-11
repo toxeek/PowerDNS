@@ -8,7 +8,11 @@ This has been done on Ubuntu 14.04, you will need to install powerdns, and if yo
 # sudo mkdir -p /etc/powerdns/bind
 # sudo pdnssec create-bind-db /etc/powerdns/bind/dnssec.db
 ```
-
+Make sure you do the above after configuring and restarting pdns service
+```bash
+# sudo update-rc.d pdns defaults
+# sudo service pdns restart
+```
 Make sure you set up your DHCP server to point to this machine (with powerdns), or just modify resolvconf like this: (192.168.122.151 is the IP of this powerdns machine)
 ```bash
 # sudo vim /etc/resolvconf/resolv.conf.d/head
@@ -16,11 +20,4 @@ Make sure you set up your DHCP server to point to this machine (with powerdns), 
 ### nameserver 192.168.122.151
 # sudo resolvconf -u
 ```
-
-Make sure you do the above after configuring and restarting pdns service
-```bash
-# sudo update-rc.d pdns defaults
-# sudo service pdns restart
-```
-
 
